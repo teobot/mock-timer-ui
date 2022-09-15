@@ -101,7 +101,7 @@ function App() {
               fontSize: "2rem",
               fontWeight: "bolder",
             }}
-            href="window.location.reload()"
+            href="."
           >
             start again
           </a>
