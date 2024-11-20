@@ -20,6 +20,7 @@ function App() {
   const [userInputMinutes, setUserInputMinutes] = useState(0);
   const [userInputSeconds, setUserInputSeconds] = useState(0);
   const [startedCountdown, setStartedCountdown] = useState(false);
+  const [isFemaleVoice, setIsFemaleVoice] = useState(true);
 
   const [timerMessages, setTimerMessages] = useState([
     {
@@ -69,7 +70,12 @@ function App() {
     speakObj.rate = options.rate;
     speakObj.pitch = options.pitch;
     speakObj.voice = speechSynthesis.getVoices().filter(function (voice) {
-      return voice.name === "Microsoft Hazel - English (United Kingdom)";
+      return (
+        voice.name ===
+        (isFemaleVoice
+          ? "Microsoft Hazel - English (United Kingdom)"
+          : "Microsoft George - English (United Kingdom)")
+      );
     })[0];
     speakObj.onend = onEnd;
     speechSynthesis.speak(speakObj);
@@ -173,6 +179,8 @@ function App() {
               handleStart={handleStart}
               timerMessages={timerMessages}
               setTimerMessages={setTimerMessages}
+              isFemaleVoice={isFemaleVoice}
+              setIsFemaleVoice={setIsFemaleVoice}
             />
           )
         }

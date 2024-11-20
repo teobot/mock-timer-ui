@@ -10,6 +10,8 @@ export default function TimeEditor({
   handleStart,
   timerMessages,
   setTimerMessages,
+  isFemaleVoice,
+  setIsFemaleVoice,
 }) {
   return (
     <div className="h-100 w-100 m-0 p-5 d-flex align-items-center justify-content-center">
@@ -90,10 +92,30 @@ export default function TimeEditor({
         </div>
       </div>
       <div className="m-2 h-100 d-flex flex-column gap-2 w-auto">
+        {/* make a toggle for female or male voice */}
+        <div className="form-check form-switch">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            checked={isFemaleVoice}
+            onChange={() => setIsFemaleVoice(!isFemaleVoice)}
+          />
+          <label className="form-check-label" for="flexSwitchCheckDefault">
+            Female or male - Currently set to{" "}
+            <b className="text-bold">{isFemaleVoice ? "FEMALE" : "MALE"}</b>
+          </label>
+        </div>
+        {/* divider */}
+        <hr className="w-75 mx-auto opacity-" />
         {
           // TIMER MESSAGES
           timerMessages.map((message, index) => (
-            <div className="form-check border d-flex gap-2 align-items-center p-2">
+            <div
+              key={message.msg}
+              className="form-check border d-flex gap-2 align-items-center p-2"
+            >
               <input
                 className="form-check-input m-0 p-0"
                 type="checkbox"
