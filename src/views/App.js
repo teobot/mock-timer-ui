@@ -50,7 +50,7 @@ function App() {
     {
       msg: "Stop working, pencils down, your time is up.",
       trg: (m, s, t) => m === 0 && s === 1,
-      enabled: false,
+      enabled: true,
       desc: "Triggers when your time is up",
     },
   ]);
