@@ -26,31 +26,31 @@ function App() {
     {
       msg: "You have 1 minute remaining",
       trg: (m, s, t) => m === 1 && s === 0,
-      enabled: true,
+      enabled: false,
       desc: "Triggers when there is 1 minute remaining",
     },
     {
       msg: "You have 2 minute remaining",
       trg: (m, s, t) => m === 2 && s === 0,
-      enabled: true,
+      enabled: false,
       desc: "Triggers when there is 2 minute remaining",
     },
     {
       msg: "You have 5 minutes remaining",
       trg: (m, s, t) => m === 5 && s === 0,
-      enabled: true,
+      enabled: false,
       desc: "Triggers when there is 5 minutes remaining",
     },
     {
       msg: "You are now halfway through your time for this section.",
       trg: (m, s, t) => t / 2 === m * 60 + s,
-      enabled: true,
+      enabled: false,
       desc: "Triggers when you are halfway through your time",
     },
     {
       msg: "Stop working, pencils down, your time is up.",
       trg: (m, s, t) => m === 0 && s === 1,
-      enabled: true,
+      enabled: false,
       desc: "Triggers when your time is up",
     },
   ]);
